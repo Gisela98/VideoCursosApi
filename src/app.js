@@ -31,8 +31,6 @@ app.use('/api/v1', categoriesRoutes);
 app.use('/api/v1', coursesRoutes);
 app.use('/api/v1', videosRoutes);
 
-console.log("MIPUERTO ES  " + process.env.PORT);
-
 app.listen(PORT, ()=> {
   console.log("server on port " + PORT);
 })

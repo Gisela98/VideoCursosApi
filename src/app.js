@@ -7,7 +7,7 @@ const usersCoursesRoute = require('./routes/usersCourses.routes')
 const morgan = require ('morgan');
 const db = require('./utils/database');
 const initModels = require('./models/initModels');
-const app = require('./app');
+const app = express();
 const PORT = process.env.PORT || 8000;
 
 initModels();

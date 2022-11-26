@@ -8,14 +8,13 @@ const morgan = require ('morgan');
 const db = require('./utils/database');
 const initModels = require('./models/initModels');
 const app = express();
+const PORT = process.env.PORT || 8000;
 
-initModels()
+initModels();
 
 app.use(morgan('dev'))
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
-
-const PORT = process.env.PORT || 8000;
 
 db.authenticate()
   .then(() => console.log('autenticacion exitosa') )
@@ -34,7 +33,9 @@ app.use('/api/v1', videosRoutes);
 
 console.log("MIPUERTO ES  " + process.env.PORT);
 
-app.listen(PORT)
+app.listen(PORT, ()=> {
+  console.log("server on port " + PORT);
+})
 
 module.exports = app;
 

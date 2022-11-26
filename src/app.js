@@ -9,14 +9,13 @@ const db = require('./utils/database');
 const initModels = require('./models/initModels');
 const app = express();
 
-const PORT = process.env.PORT || 8000;
-
 initModels()
 
 app.use(morgan('dev'))
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 
+const PORT = process.env.PORT || 8000;
 
 db.authenticate()
   .then(() => console.log('autenticacion exitosa') )
